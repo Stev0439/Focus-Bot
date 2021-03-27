@@ -27,9 +27,10 @@ Use Cases
 **Main Flow:**
 * User opens the main menu. 
 * User opens “Reminder” menu. 
-* User inputs a note to be reminded with. [E1] User inputs a date/time for the note to be reminded of. 
-* [S1] At provided date/time, the bot will display the note. 
-* [S2] Note will not be removed until User manually closes reminder.
+* [E1] User inputs a note to be reminded with. 
+* [S1] User inputs a date/time for the note to be reminded of. 
+* [S2] At provided date/time, the bot will display the note. 
+* Note will not be removed until User manually closes reminder.
 
 **Subflows:**
 * [S1] User does not input a date/time. Bot will set reminder date/time to 24 hours after current date/time.
@@ -46,24 +47,25 @@ Use Cases
 * There are no other focus techniques running at the same time
 
 **Main Flow:**
-* The user opens the main menu by clicking on the browser extension
-* User decides on which focus technique to use, in this case picking the pomodoro focus technique
-* They click on that option which starts the timer for their work period
-* They work on the project until the timer counts down
-* The timer alerts them that the time is done and their break time begins
-* When the user acknowledges this, the plugin will begin the timer for the break time
-* Once that time is up the timer will again alert the user, who will have to acknowledge the alert to cause the program to begin the new work timer
-* This cycle will continue until the user cancels the pomodoro technique
+* The user opens the main menu by clicking on the browser extension.
+* [E1] User decides on which focus technique to use, in this case picking the pomodoro focus technique.
+* [E2] They click on that option which starts the timer for their work period.
+* [E3] They work on the project until the timer counts down.
+* [S1] The timer alerts them that the time is done and their break time begins.
+* When the user acknowledges this, the plugin will begin the timer for the break time.
+* Once that time is up the timer will again alert the user, who will have to acknowledge the alert to cause the program to begin the new work timer.
+* This cycle will continue until the user cancels the pomodoro technique.
 
 **Sub Flows:**
-* The user hits pause on one of the timers
+* [S1] The user hits pause on one of the timers
 	* This will cause a third timer to begin that will count down how long the pause will be
 	* The user can cancel this pause at any point during this time
 	* When the timer reaches zero the user can either continue back to the original timer that was paused, or if they do not believe they will be able to return to work can 	cancel all the timers and return to main menu
 
 **Alternative Flows:**
-* The user chooses a different focus method such as the encouragement loop or music/noise loop
-* The user decides to change the values for each of the timers thus goes to the settings instead of starting the technique
+* [E1] The user chooses a different focus method such as the encouragement loop or music/noise loop
+* [E2] The user decides to change the values for each of the timers thus goes to the settings instead of starting the technique
+* [E3] The user cancels the Pomodoro Focus Technique mid-timer.
 
 
 <ins>Design Sketches:</ins>
