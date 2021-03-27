@@ -14,12 +14,12 @@ The focus bot has conversations with the users as well as responds to events. Th
 
 **Tagline:** Keep an eye out with A.I.!
 
-Use Cases
+**Use Cases**
 
 <ins>Use Case One : Set / Use Reminders</ins>
 
 Preconditions:
-None
+* None
 
 Main Flow:
 User opens the main menu. 
@@ -29,18 +29,18 @@ User inputs a note to be reminded with. [E1] User inputs a date/time for the not
 [S2] Note will not be removed until User manually closes reminder.
 
 Subflows:
-[S1] User does not input a date/time. Bot will set reminder date/time to 24 hours after current date/time.
-[S2] Bot is not active at the provided date/time. When Bot becomes active after reminder date/time, display note.
+* [S1] User does not input a date/time. Bot will set reminder date/time to 24 hours after current date/time.
+* [S2] Bot is not active at the provided date/time. When Bot becomes active after reminder date/time, display note.
 
 Alternative Flows:
-[E1] User does not input a note. 
+* [E1] User does not input a note. 
 
 	
-Use Case Two: Start Pomodoro Focus Technique
+<ins>Use Case Two: Start Pomodoro Focus Technique</ins>
 
 Preconditions: 
-The user has a browser that supports the plugin extension
-That there are not other focus techniques running at the same time
+* The user has a browser that supports the plugin extension
+* There are not other focus techniques running at the same time
 
 Main Flow:
 The user opens the main menu by clicking on the browser extension
@@ -53,15 +53,14 @@ Once that time is up the timer will again alert the user, who will have to ackno
 This cycle will continue until the user cancels the pomodoro technique
 
 Sub Flows:
- The user hits pause on one of the timers
-This will cause a third timer to begin that will count down how long the pause will be
-The user can cancel this pause at any point during this time
-When the timer reaches zero the user can either continue back to the original timer that was paused, or if they do not believe they will be able to return to work can cancel all the timers and return to main menu
+* The user hits pause on one of the timers
+* This will cause a third timer to begin that will count down how long the pause will be
+* The user can cancel this pause at any point during this time
+* When the timer reaches zero the user can either continue back to the original timer that was paused, or if they do not believe they will be able to return to work can cancel all the timers and return to main menu
 
 Alternative Flows:
-The user chooses a different focus method such as the encouragement loop or music/noise loop
-The user decides to change the values for each of the timers thus goes to the settings instead of starting the technique
-
+* The user chooses a different focus method such as the encouragement loop or music/noise loop
+* The user decides to change the values for each of the timers thus goes to the settings instead of starting the technique
 
 **Design Sketches**
 ![SSW345 MilestoneDiagram V3](https://user-images.githubusercontent.com/63609012/112729622-84c35600-8f03-11eb-8764-f862d0a6f98b.png)
