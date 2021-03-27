@@ -68,7 +68,7 @@ Use Cases
 **State Transition Mockup:**
 ![SSW345 MilestoneDiagram V3](https://user-images.githubusercontent.com/63609012/112729622-84c35600-8f03-11eb-8764-f862d0a6f98b.png)
 
-**Storyboard:**
+**Storyboard:	**
 ![storyboard](https://user-images.githubusercontent.com/62709228/112730022-83932880-8f05-11eb-8bda-3d307a34e3aa.PNG)
 
 
