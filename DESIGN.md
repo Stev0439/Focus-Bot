@@ -4,68 +4,69 @@ SSW 345
 28 March 2021
 
 Design Milestone
-**Problem Statement**
+<ins>Problem Statement</ins>
 
 A major problem found in any workplace is low team member productivity which results in late work and missed deadlines. These problems cause the stereotypical pitfalls faced by many teams of extending schedules past their promised deadlines. Such extensions cause major losses for companies in increased cost of project and work hours billed, disappointment of customers, and lagging behind market competitor product roll out. All of these aspects can massively hinder the potential success of a project and total profit it returns to the company.
 
-**Bot Description**
+<ins>Bot Description</ins>
 Group 7's focus bot would be used to increase team member productivity by solving the problem of avoiding late work and missed deadlines. This would avoid the stereotypical pitfalls many teams face of extending schedule past their promised deadlines, which cause major losses for companies in increased cost of project and work hours billed, massively hindering the potential success of the project. Thus the idea of our bot is to increase this productivity by getting workers to start projects earlier and keep them actively engaged in their projects during working hours. As such we would be looking at a focus bot focused on the patterns of notifiers and space responders to accomplish these tasks. 
 The focus bot has conversations with the users as well as responds to events. The bot allows the user to set specific tasks and reminders that are used as a checklist. The user is able to interact with these reminders in order to stay on task and keep track of their work. The bot also has a function to display encouraging messages over in a loop to keep the user motivated when the user selects that mode. Furthermore, the bot and the user interact with each other in the Pomodoro Focus Technique, in which the user sets a time to focus and the bot displays the time left in focus. The bot also sends notifications to the user after certain events happen, such as completing all the daily reminders, alerting the user after being idle for a period of time, or finishing their Pomodoro Focus Technique.
 
 **Tagline:** Keep an eye out with A.I.!
 
-**Use Cases**
+Use Cases
 
 <ins>Use Case One : Set / Use Reminders</ins>
 
-Preconditions:
-* None
+**Preconditions:**
+-None
 
-Main Flow:
-User opens the main menu. 
-User opens “Reminder” menu. 
-User inputs a note to be reminded with. [E1] User inputs a date/time for the note to be reminded of. 
-[S1] At provided date/time, the bot will display the note. 
-[S2] Note will not be removed until User manually closes reminder.
+**Main Flow:**
+-User opens the main menu. 
+-User opens “Reminder” menu. 
+-User inputs a note to be reminded with. [E1] User inputs a date/time for the note to be reminded of. 
+-[S1] At provided date/time, the bot will display the note. 
+-[S2] Note will not be removed until User manually closes reminder.
 
-Subflows:
-* [S1] User does not input a date/time. Bot will set reminder date/time to 24 hours after current date/time.
-* [S2] Bot is not active at the provided date/time. When Bot becomes active after reminder date/time, display note.
+**Subflows:**
+-[S1] User does not input a date/time. Bot will set reminder date/time to 24 hours after current date/time.
+-[S2] Bot is not active at the provided date/time. When Bot becomes active after reminder date/time, display note.
 
-Alternative Flows:
-* [E1] User does not input a note. 
+**Alternative Flows:**
+[E1] User does not input a note. 
 
 	
 <ins>Use Case Two: Start Pomodoro Focus Technique</ins>
 
-Preconditions: 
-* The user has a browser that supports the plugin extension
-* There are not other focus techniques running at the same time
+**Preconditions:**
+-The user has a browser that supports the plugin extension
+-That there are not other focus techniques running at the same time
 
-Main Flow:
-The user opens the main menu by clicking on the browser extension
-User decides on which focus technique to use, in this case picking the pomodoro focus technique
-They click on that option which starts the timer for their work period
-They work on the project until the timer counts down
-The timer alerts them that the time is done and their break time begins
-When the user acknowledges this, the plugin will begin the timer for the break time
-Once that time is up the timer will again alert the user, who will have to acknowledge the alert to cause the program to begin the new work timer
-This cycle will continue until the user cancels the pomodoro technique
+**Main Flow:**
+-The user opens the main menu by clicking on the browser extension
+-User decides on which focus technique to use, in this case picking the pomodoro focus technique
+-They click on that option which starts the timer for their work period
+-They work on the project until the timer counts down
+-The timer alerts them that the time is done and their break time begins
+-When the user acknowledges this, the plugin will begin the timer for the break time
+-Once that time is up the timer will again alert the user, who will have to acknowledge the alert to cause the program to begin the new work timer
+-This cycle will continue until the user cancels the pomodoro technique
 
-Sub Flows:
-* The user hits pause on one of the timers
-* This will cause a third timer to begin that will count down how long the pause will be
-* The user can cancel this pause at any point during this time
-* When the timer reaches zero the user can either continue back to the original timer that was paused, or if they do not believe they will be able to return to work can cancel all the timers and return to main menu
+**Sub Flows:**
+-The user hits pause on one of the timers
+	-This will cause a third timer to begin that will count down how long the pause will be
+	-The user can cancel this pause at any point during this time
+	-When the timer reaches zero the user can either continue back to the original timer that was paused, or if they do not believe they will be able to return to work can 	cancel all the timers and return to main menu
 
-Alternative Flows:
-* The user chooses a different focus method such as the encouragement loop or music/noise loop
-* The user decides to change the values for each of the timers thus goes to the settings instead of starting the technique
+**Alternative Flows:**
+-The user chooses a different focus method such as the encouragement loop or music/noise loop
+-The user decides to change the values for each of the timers thus goes to the settings instead of starting the technique
 
-**Design Sketches**
+
+<ins>Design Sketches:</ins>
 ![SSW345 MilestoneDiagram V3](https://user-images.githubusercontent.com/63609012/112729622-84c35600-8f03-11eb-8764-f862d0a6f98b.png)
 
-**Architecture Design**
+<ins>Architecture Design</ins>
 ![Design Milestone One Wireframe](https://user-images.githubusercontent.com/63609012/112729603-665d5a80-8f03-11eb-8ba7-7cf71f3fdebd.png)
 
 **Platform**
