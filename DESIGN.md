@@ -17,12 +17,12 @@ The focus bot has conversations with the users as well as responds to events. Th
 
 **Tagline:** Keep an eye out with A.I.!
 
-Use Cases
+<ins>Use Cases</ins>
 
-<ins>Use Case One : Set / Use Reminders</ins>
+***Use Case One : Set / Use Reminders***
 
 **Preconditions:**
-* None
+* The user has a browser that supports the plugin extension.
 
 **Main Flow:**
 * User opens the main menu. 
@@ -40,7 +40,7 @@ Use Cases
 * [E1] User does not input a note. 
 
 	
-<ins>Use Case Two: Start Pomodoro Focus Technique</ins>
+***Use Case Two: Start Pomodoro Focus Technique***
 
 **Preconditions:**
 * The user has a browser that supports the plugin extension
