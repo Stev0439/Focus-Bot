@@ -64,7 +64,13 @@ Use Cases
 
 
 <ins>Design Sketches:</ins>
+
+**State Transition Mockup:**
 ![SSW345 MilestoneDiagram V3](https://user-images.githubusercontent.com/63609012/112729622-84c35600-8f03-11eb-8764-f862d0a6f98b.png)
+
+**Storyboard:**
+![storyboard](https://user-images.githubusercontent.com/62709228/112730022-83932880-8f05-11eb-8bda-3d307a34e3aa.PNG)
+
 
 <ins>Architecture Design</ins>
 ![Design Milestone One Wireframe](https://user-images.githubusercontent.com/63609012/112729603-665d5a80-8f03-11eb-8ba7-7cf71f3fdebd.png)
