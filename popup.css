@@ -1,8 +1,9 @@
 body{
-	min-width:320px;
+	min-width:330px;
 	max-width:100%;
 	min-height:300px;
-	max-height:100:;
+	max-height:100%;
+	overflow:auto;
 }
 
 div.tabcontent{
@@ -15,4 +16,10 @@ button.tablinks{
 	width:auto;
 	padding:0px 5px;
 	display:inline-block;
+	border:2px solid transparent;
+}
+
+button.active{
+	background:#c5d3ed;
+	border:2px solid black;
 }

@@ -35,7 +35,7 @@ function setTabContent(x){
 			tablinks[i].className = tablinks[i].className.replace(" active", "");
 		}
 		tabcontent[x].style.display = "block";
-		tablinks[0].className += " active";
+		tablinks[x].className += " active";
 	}
 }
 
