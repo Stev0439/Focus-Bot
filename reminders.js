@@ -34,13 +34,15 @@ function newTime(){
     // If necessary, make binary (AM/PM) switch to add 12 to Hour.    
     var Minute = HM.substring(3)
 
-    var date = new Date(`${Year}-${Month}-${Day}T${Hour}:${Minute}:00`)
-    var reminder = [date,description]
+    var inputStr = `${Year}-${Month}-${Day}T${Hour}:${Minute}:00`
+    var date = new Date(inputStr)
+    var reminder = [inputStr,description]
     currTime.innerHTML = date.toString()
     chrome.storage.sync.get({reminders:[]},function(result){
       result.reminders.push(reminder)
       chrome.storage.sync.set({reminders:result.reminders},function(){
         console.log('Value uploaded');
+        console.log(reminder)
       });
     });
 
@@ -62,3 +64,4 @@ function getReminders(){
     })
   }
 }
+

@@ -3,7 +3,7 @@ let reminders = [];
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ color });
-  chrome.storage.sync.set({ reminders});
+  chrome.storage.sync.set({reminders});
   console.log('Default background color set to %cgreen', `color: ${color}`);
 });
 
@@ -16,19 +16,39 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
 	if ("reminders" in changes){
 		oldRemind = changes.reminders.oldValue;
 		newRemind = changes.reminders.newValue;
-		console.log("Old Reminders:")
+		this.reminders = [];
+/*		console.log("Old Reminders:")
 		for (var i = 0; i < oldRemind.length; i++){
-			reminder = [Date(oldRemind[i][0]).toString(),oldRemind[i][1]]
+			reminder = [Date(oldRemind[i][0]),oldRemind[i][1]]
 			console.log(reminder)
-		}
-		console.log("New Reminders:")
+		}*/
+		 console.log("New Reminders:")
 		for (var i = 0; i < newRemind.length; i++){
-			reminder = [Date(newRemind[i][0]).toString(),newRemind[i][1]]
+			reminder = [new Date(newRemind[i][0]),newRemind[i][1]]
 			console.log(reminder)
+			this.reminders.push(reminder);
 		}
+		console.log("Final values:")
+		console.log(this.reminders)
+//		for (reminder in this.reminders){
+//			console.log("New alarm made!")
+//			console.log(reminder)
+//			opts = {
+//				type: "basic",
+//				title: "Reminder for  " + reminder[0].getTime() + "!",
+//				message: reminder[1]
+//			}
+//			chrome.notifications.create(reminder[0],opts,function(){})
+
+//			newAlarm = setTimeout(reminderAlarm(reminder[0],reminder[1]),reminder[0].getTime()-Date.now())
+			
+
+//		}
+
 	}
 });
 
-chrome.alarms.onAlarm.addListener(function( alarm ) {
-  console.log("Got an alarm!", alarm);
-});
+function reminderAlarm(time,description){
+	description;
+
+}
