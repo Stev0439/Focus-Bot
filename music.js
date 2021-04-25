@@ -1,4 +1,4 @@
-/*window.onload=function(){
+
 	let classical = document.getElementById("classic");
 	let lofiHH = document.getElementById("lofi");
 	let animeO = document.getElementById("anime");
@@ -19,8 +19,7 @@
 		}
 	}
 
-	classical[0].addEventListener("click", playMusic('c'));
-	lofiHH[0].addEventListener("click", playMusic('l'));
-	animeO[0].addEventListener("click", playMusic('a'));
-	vGame[0].addEventListener("click", playMusic('v'));
-}*/
+	classical.addEventListener("click", playMusic.bind(null,'c'));
+	lofiHH.addEventListener("click", playMusic.bind(null,'l'));
+	animeO.addEventListener("click", playMusic.bind(null,'a'));
+	vGame.addEventListener("click", playMusic.bind(null,'v'));
