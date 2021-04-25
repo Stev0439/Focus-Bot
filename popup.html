@@ -21,6 +21,24 @@
 		<button class="startB">Start Time</button>
 		<button class="pauseB">Pause Time</button>
 		<button class="cancelB">Cancel Timer</button>
+  </div>
+
+	<div id="Reminders" class="tabcontent">
+		<h3>Reminders</h3>
+		<button id="displayTime" class="actionButton">DisplayTime</button>		
+		<p id="currTime">  </p>
+		<form id="reminderForm">
+			<label name="reminderText">Set a reminder: </label><br>
+			<input type = "text" name="reminderText" value="TemporaryText"><br>
+			<label name="reminderDate">Date of reminder (YYYY-MM-DD): </label><br>
+			<input type = "text" name="reminderText" value="2012-12-18"><br>
+			<label name="reminderTime">Time of reminder (HH:MM): </label><br>
+			<input type = "text" name="reminderText" value="11:11"><br>
+			<!-- If necessary, add AM/PM toggle here -->
+		</form>
+		<button id="createTime" class="actionButton">Create Time</button> 
+		<button id="toggleAlarm" class="actionButton">ActivateAlarm</button>
+
 	</div>
 
 	<div id="Encouragement" class="tabcontent">

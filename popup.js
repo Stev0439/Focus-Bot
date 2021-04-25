@@ -21,7 +21,6 @@ changeColor.addEventListener("click", async () => {
 });
 
 for(var i = 0; i < tablinks.length;i++){
-	console.log(i)
 	tablinks[i].addEventListener("click",setTabContent(i))		
 }
 
@@ -29,7 +28,6 @@ for(var i = 0; i < tablinks.length;i++){
 function setTabContent(x){
 	return function(){
 		for (i = 0; i < tabcontent.length; i++) {
-			console.log(i)
 			tabcontent[i].style.display = "none";
 		}
 		tablinks = document.getElementsByClassName("tablinks");
@@ -47,6 +45,7 @@ function setTabContent(x){
 function setPageBackgroundColor() {
 	chrome.storage.sync.get("color", ({ color }) => {
 		document.body.style.backgroundColor = color;
+		alarm("Hi!");
 	});
 }
 
