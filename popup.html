@@ -2,21 +2,26 @@
 <html>
 <head>
 	<link rel="stylesheet" href="popup.css">
-	<link rel="stylesheet" href="button.css">    
+	<link rel="stylesheet" href="button.css">   
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> 
 </head>
 <body>
 	<button id="changeColor"></button>
 	<h1>Focus Bot Menu</h1>	
 	<div class="tab">
 		<button class="tablinks">Pomodoro</button>
-		<button class="tablinks">Reminders</button>
 		<button class="tablinks">Encouragement</button>
 		<button class="tablinks">Music</button>
+		<button class="tablinks">Reminders</button>
 	</div>
 
 	<div id="Pomodoro" class="tabcontent">
 		<h3>Pomodoro</h3>
 		<p>Temporary Text</p>
+		<div><span id="testing1"></span> : <span id="testing2"></span></div>
+		<button class="startB">Start Time</button>
+		<button class="pauseB">Pause Time</button>
+		<button class="cancelB">Cancel Timer</button>
 	</div>
 
 	<div id="Reminders" class="tabcontent">
