@@ -2,6 +2,7 @@
 let changeColor = document.getElementById("changeColor");
 let tabcontent = document.getElementsByClassName("tabcontent");
 let tablinks = document.getElementsByClassName("tablinks");
+
 chrome.storage.sync.get("color", ({ color }) => {
 	changeColor.style.backgroundColor = color;
 });
@@ -44,3 +45,16 @@ function setPageBackgroundColor() {
 		alarm("Hi!");
 	});
 }
+
+
+//Start button event that starts stopwatch
+
+
+
+
+
+
+
+//hold[0].addEventListener("click", pauseTiming);
+
+//end[0].addEventListener("click", returnMenu);
