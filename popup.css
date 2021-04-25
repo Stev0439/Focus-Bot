@@ -23,3 +23,11 @@ button.active{
 	background:#c5d3ed;
 	border:2px solid black;
 }
+
+button.actionButton{
+	margin:0px 0px 0px 0px;
+	width:auto;
+	padding:0px 5px;
+	display:inline-block;
+	border:2px solid transparent;
+}
