@@ -9,7 +9,7 @@
 			window.open('https://www.youtube.com/watch?v=jgpJVI3tDbY', '_blank');
 		}
 		else if(music == 'l'){
-			window.open('youtube.com/playlist?list=PL6NdkXsPL07KN01gH2vucrHCEyyNmVEx4', '_blank');
+			window.open('https://www.youtube.com/watch?v=lTRiuFIWV54', '_blank');
 		}
 		else if(music == 'a'){
 			window.open('https://www.youtube.com/watch?v=ds1ymGglJrc', '_blank');
