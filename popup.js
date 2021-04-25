@@ -78,9 +78,32 @@ function startWork(startMin,startSec){
 	else{
 		document.getElementById("testing1").innerHTML = countingMin;
 		document.getElementById("testing2").innerHTML = countingSec;
-		//startBreak(a,b);
+		startBreak(5,0);
 	}
 
+}
+
+function startBreak(startMin, startSec){
+	let countingMin = startMin;
+	let countingSec = startSec;
+	if(countingSec == 0 && countingMin != 0){
+		countingMin = countingMin - 1;
+		countingSec = 60;
+		document.getElementById("testing1").innerHTML = countingMin;
+		document.getElementById("testing2").innerHTML = countingSec;
+		startWork(countingMin,countingSec);
+	}
+	else if(coutingSec != 0){
+		countingSec = countingSec - 1;
+		document.getElementById("testing1").innerHTML = countingMin;
+		document.getElementById("testing2").innerHTML = countingSec;
+		startWork(countingMin,countingSec);
+	}
+	else{
+		document.getElementById("testing1").innerHTML = countingMin;
+		document.getElementById("testing2").innerHTML = countingSec;
+		startWork(25,0);
+	}
 }
 
 //Start button event that starts stopwatch
@@ -88,11 +111,15 @@ function beginTiming(){
 	//alert("I'm in the starting place");
 		//alert("Getting to calling function");
 			//increaseTime();
-	startWork(6,0);
+	startWork(25,0);
 
 }
 
 start[0].addEventListener("click", beginTiming);
+
+//hold[0].addEventListener("click", pauseTiming);
+
+//end[0].addEventListener("click", returnMenu);
 
 /*
 function increaseTime(){
