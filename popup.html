@@ -3,7 +3,6 @@
 <head>
 	<link rel="stylesheet" href="popup.css">
 	<link rel="stylesheet" href="button.css">   
-	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> 
 </head>
 <body>
 	<button id="changeColor"></button>
@@ -24,11 +23,6 @@
 		<button class="cancelB">Cancel Timer</button>
 	</div>
 
-	<div id="Reminders" class="tabcontent">
-		<h3>Reminders</h3>
-		<p>Temporary Text</p> 
-	</div>
-
 	<div id="Encouragement" class="tabcontent">
 		<h3>Encouragement</h3>
 		<p>Temporary Text</p>
@@ -37,9 +31,19 @@
 	<div id="Music" class="tabcontent">
 		<h3>Music</h3>
 		<p>Temporary Text</p>
+		<button id="classic">Classical Instrumental</button>
+		<button id="lofi">Lofi Hip Hop</button>
+		<button id="anime">Anime Openings</button>
+		<button id="game">Epic Videogame</button>
+	</div>
+
+	<div id="Reminders" class="tabcontent">
+		<h3>Reminders</h3>
+		<p>Temporary Text</p> 
 	</div>
 
 	<script src="popup.js"></script>
 	<script src="reminders.js"></script>
+	<script src="music.js"></script>
 </body>
 </html>
