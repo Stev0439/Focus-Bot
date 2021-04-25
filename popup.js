@@ -2,8 +2,6 @@
 let changeColor = document.getElementById("changeColor");
 let tabcontent = document.getElementsByClassName("tabcontent");
 let tablinks = document.getElementsByClassName("tablinks");
-
-
 chrome.storage.sync.get("color", ({ color }) => {
 	changeColor.style.backgroundColor = color;
 });
@@ -19,7 +17,7 @@ changeColor.addEventListener("click", async () => {
 });
 
 for(var i = 0; i < tablinks.length;i++){
-	tablinks[i].addEventListener("click",setTabContent(i))		
+	tablinks[i].addEventListener("click",setTabContent(i))
 }
 
 
