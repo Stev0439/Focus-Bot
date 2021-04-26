@@ -29,4 +29,5 @@ During this time we discussed the basic components of the application and worked
 We wrote up these general ideas on our project board. However, we did not turn them into issues as it was clearly understood between group members who was doing what. Thus they weren't turned into issues and officially assigned until much later.
 At the end of this last sprint we were able to accomplish the following tasks:
 
-[insert development board picture]
+![FocusBotSprint2End](https://user-images.githubusercontent.com/62709228/116015893-f1b43380-a608-11eb-8131-dbefe1d6e56b.png)
+
