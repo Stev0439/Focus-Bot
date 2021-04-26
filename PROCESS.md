@@ -4,6 +4,8 @@ During this time the team worked primarly on research. While we had discussed bo
 
 We took this time to learn more about chrome extension specifically and see what differences, if any, existed between what we were familiar with and the new material to make developing the bot easier.
 
+As for our reflection at the end, we were a little nervous at having alloted so much time to getting familiar with the unfamiliar code. However we were all confident that we would be able to accomplish a minimual proof of concept by the end of the next sprint.
+
 April 12 - April 25
 
 During this time we discussed the basic components of the application and worked out who would be given what work. The work breakdown as discussed between group members looked like this:
