@@ -21,7 +21,8 @@ During this time we discussed the basic components of the application and worked
 - CSS
 - Main Menu
 
-[insert development board picture]
+![FocusBotSprint2Begin](https://user-images.githubusercontent.com/63609012/116014593-04783980-a604-11eb-8540-c43496519f5d.png)
+
 
 We wrote up these general ideas on our project board. However, we did not turn them into issues as it was clearly understood between group members who was doing what. Thus they weren't turned into issues and officially assigned until much later.
 At the end of this last sprint we were able to accomplish the following tasks:
