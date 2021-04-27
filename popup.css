@@ -31,3 +31,89 @@ button.actionButton{
 	display:inline-block;
 	border:2px solid transparent;
 }
+.tablinks {
+	box-shadow: 0px 1px 14px -7px #3e7327;
+	background:linear-gradient(to bottom, #77b55a 5%, #77ff33 100%);
+	background-color:#77b55a;
+	border-radius:30px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:10px 18px;
+	text-decoration:none;
+	text-shadow:1px 2px 0px #5b8a3c;
+}
+.tablinks:hover {
+	background:linear-gradient(to bottom, #77ff33 5%, #77b55a 100%);
+	background-color:#77ff33;
+}
+.tablinks:active {
+	position:relative;
+	top:1px;
+}
+.tab {
+		justify-content: center;
+		display: flex;
+}
+
+h1{
+	justify-content: center;
+	display: flex;
+}
+h2{
+	justify-content: center;
+	display: flex;
+}
+h3{
+	justify-content: center;
+	display: flex;
+	font-size: 32px;
+}
+p{
+	justify-content: center;
+	display: flex;
+}
+form{
+	justify-content: center;
+
+}
+body{
+	background-color: #ede8de;
+
+}
+pre{
+	display:block;
+
+	font-size: 18px;
+	font: Arial;
+}
+.actionButton {
+	box-shadow: 3px 4px 0px 0px #1564ad;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background-color:#79bbff;
+	border-radius:9px;
+	border:1px solid #337bc4;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:11px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+
+
+}
+.actionButton:hover {
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+.actionButton:active {
+	position:relative;
+	top:1px;
+}

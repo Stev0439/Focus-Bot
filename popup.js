@@ -35,6 +35,7 @@ function setTabContent(x){
 		tablinks[x].className += " active";
 	}
 }
+<<<<<<< Updated upstream
 
 
 // The body of this function will be execuetd as a content script inside the
@@ -58,3 +59,5 @@ function setPageBackgroundColor() {
 //hold[0].addEventListener("click", pauseTiming);
 
 //end[0].addEventListener("click", returnMenu);
+=======
+>>>>>>> Stashed changes
