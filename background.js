@@ -5,27 +5,16 @@ chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.sync.set({ color });
 	chrome.storage.sync.set({reminders});	
 	console.log('Default background color set to %cgreen', `color: ${color}`);
-
 });
 
 chrome.storage.sync.get({reminders:[]},function(result){
 	this.reminders = result.reminders;
 	console.log(this.reminders);
-/*	let queryOptions = { active: true, currentWindow: true };
-  	let [tab] = await chrome.tabs.query(queryOptions);
-  	console.log(tab)
-	chrome.scripting.executeScript({
-		function: 'testJS.js'
-	}) */
-
 });
-
-function showAlert(){
-	alert('test');
-}
 
 chrome.storage.onChanged.addListener(function(changes, namespace){
 	if ("reminders" in changes){
+		chrome.alarms.getAll(alarmArray => clearAllReminders(alarmArray));
 		oldRemind = changes.reminders.oldValue;
 		newRemind = changes.reminders.newValue;
 		this.reminders = [];
@@ -52,11 +41,8 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
 			alarmInfo = {
 				when: time.getTime()
 			}
-			chrome.alarms.create(("reminder/" + reminder[0] + reminder[1]),alarmInfo)
-
-
+			chrome.alarms.create(("reminder/" + reminder[0] + reminder[1]),{when:time.getTime()})
 		}
-
 	}
 });
 
@@ -65,10 +51,11 @@ chrome.alarms.onAlarm.addListener(onAlarm)
 function onAlarm(alarm){
 //  There is nothing in the API to distinguish between alarms.
 //  Add your "type" in the alarm's name and check for it manually.
+//  Also suggest making some data in a string and hiding it in the alarm name.
 console.log("Alarm  fired: " + alarm.name);
 
 	if (alarm.name.includes('reminder/')){
-		chrome.windows.create({url:'chrome-extension://npjobebofadkephmbmpkkinddlekmikj/reminderDisplay.html', type:'popup'})
+		chrome.windows.create({url:'chrome-extension://npjobebofadkephmbmpkkinddlekmikj/reminderDisplay.html', type:'popup', height:200, width:400})
 		"2021-04-25T00:14:00"
 		reminderDate = alarm.name.substring(9,28)
 		reminderString = alarm.name.substring(28)
@@ -115,7 +102,12 @@ function removeReminder(reminderText,reminderDate){
 	}
 }
 
-function reminderAlarm(){
-	console.log("Alarm fired:")
-	chrome.windows.create({url:'chrome-extension://npjobebofadkephmbmpkkinddlekmikj/popup.html'})
+function clearAllReminders(alarmList){
+	console.log("Clearing previous alarms:")
+	for (var i = 0; i < alarmList.length; i++){
+		if (alarmList[i].name.includes("reminder/")){
+			chrome.alarms.clear(alarmList[i].name)
+			console.log("Alarm cleared: " + alarmList[i].name)
+		}
+	}
 }
