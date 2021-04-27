@@ -19,4 +19,30 @@ function setTabContent(x){
 		tabcontent[x].style.display = "block";
 		tablinks[x].className += " active";
 	}
+
+
+
+// The body of this function will be execuetd as a content script inside the
+// current page
+function setPageBackgroundColor() {
+	chrome.storage.sync.get("color", ({ color }) => {
+		document.body.style.backgroundColor = color;
+		alarm("Hi!");
+	});
 }
+
+
+//Start button event that starts stopwatch
+
+
+
+
+
+
+
+//hold[0].addEventListener("click", pauseTiming);
+
+//end[0].addEventListener("click", returnMenu);
+
+}
+
