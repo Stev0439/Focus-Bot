@@ -1,5 +1,22 @@
 let color = '#3aa757';
 let reminders = [];
+let startTime = document.getElementById("startB");
+let stopTime = document.getElementById("cancelB");
+
+startTime.addEventListener("click",startTimers())
+stopTime.addEventListener("click",stopTimers())
+
+function startTimers(){
+	let workMinutes = 25*60*1000;
+	let breakMinutes = (5*60*1000)+workMinutes;
+	chrome.alarms.create("workTimer/",{when: Date.now()+workMinutes,periodInMinutes:30})
+	chrome.alarms.create("breakTimer/",{when:Date.now()+breakMinutes,periodInMinutes:30})
+}
+
+function stopTimers(){
+	chrome.alarms.clear("workTimer/")
+	chrome.alarms.clear("breakTimer/")
+}
 
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.sync.set({ color });
@@ -85,6 +102,12 @@ console.log("Alarm  fired: " + alarm.name);
 
 			}
 		}
+	}
+	else if(alarm.name.includes('workTimer/')){
+		alert("Work time is over for now. Please take a break.");
+	}
+	else{
+		alert("Break time is over for now. Please resume work.");
 	}
 }
 
