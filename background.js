@@ -1,28 +1,13 @@
-let color = '#3aa757';
 let reminders = [];
-let startTime = document.getElementById("startB");
-let stopTime = document.getElementById("cancelB");
-
-startTime.addEventListener("click",startTimers())
-stopTime.addEventListener("click",stopTimers())
-
-function startTimers(){
-	let workMinutes = 25*60*1000;
-	let breakMinutes = (5*60*1000)+workMinutes;
-	chrome.alarms.create("workTimer/",{when: Date.now()+workMinutes,periodInMinutes:30})
-	chrome.alarms.create("breakTimer/",{when:Date.now()+breakMinutes,periodInMinutes:30})
-}
-
-function stopTimers(){
-	chrome.alarms.clear("workTimer/")
-	chrome.alarms.clear("breakTimer/")
-}
+let localStoragePath = chrome.runtime.id
 
 chrome.runtime.onInstalled.addListener(() => {
-	chrome.storage.sync.set({ color });
 	chrome.storage.sync.set({reminders});	
-	console.log('Default background color set to %cgreen', `color: ${color}`);
+	chrome.alarms.clearAll(result => {console.log("Initialze: Alarms cleared")})
+
 });
+
+console.log(chrome.runtime.id)
 
 chrome.storage.sync.get({reminders:[]},function(result){
 	this.reminders = result.reminders;
@@ -31,7 +16,7 @@ chrome.storage.sync.get({reminders:[]},function(result){
 
 chrome.storage.onChanged.addListener(function(changes, namespace){
 	if ("reminders" in changes){
-		chrome.alarms.getAll(alarmArray => clearAllReminders(alarmArray));
+		chrome.alarms.getAll(alarmArray => clearAlarmReminders(alarmArray));
 		oldRemind = changes.reminders.oldValue;
 		newRemind = changes.reminders.newValue;
 		this.reminders = [];
@@ -69,10 +54,10 @@ function onAlarm(alarm){
 //  There is nothing in the API to distinguish between alarms.
 //  Add your "type" in the alarm's name and check for it manually.
 //  Also suggest making some data in a string and hiding it in the alarm name.
-console.log("Alarm  fired: " + alarm.name);
+console.log("Alarm fired: " + alarm.name);
 
 	if (alarm.name.includes('reminder/')){
-		chrome.windows.create({url:'chrome-extension://npjobebofadkephmbmpkkinddlekmikj/reminderDisplay.html', type:'popup', height:200, width:400})
+		chrome.windows.create({url:'chrome-extension://' + localStoragePath + '/reminderDisplay.html', type:'popup', height:200, width:400})
 		"2021-04-25T00:14:00"
 		reminderDate = alarm.name.substring(9,28)
 		reminderString = alarm.name.substring(28)
@@ -90,11 +75,14 @@ console.log("Alarm  fired: " + alarm.name);
 			}
 		}
 	}
-	else if(alarm.name.includes('workTimer/')){
-		alert("Work time is over for now. Please take a break.");
-	}
-	else{
-		alert("Break time is over for now. Please resume work.");
+	if (alarm.name.includes('pomodoro/')){
+		chrome.windows.create({url:'chrome-extension://' + localStoragePath + '/pomodoroDisplay.html', type:'popup', height:200, width:400})
+		if (alarm.name.includes('work')){
+			setTimeout(sendPomodoroMessage.bind(null,false),300)
+		}
+		else{
+			setTimeout(sendPomodoroMessage.bind(null,true),300)
+		}
 	}
 }
 
@@ -125,7 +113,7 @@ function removeReminder(reminderText,reminderDate){
 	}
 }
 
-function clearAllReminders(alarmList){
+function clearAlarmReminders(alarmList){
 	console.log("Clearing previous alarms:")
 	for (var i = 0; i < alarmList.length; i++){
 		if (alarmList[i].name.includes("reminder/")){
@@ -133,4 +121,64 @@ function clearAllReminders(alarmList){
 			console.log("Alarm cleared: " + alarmList[i].name)
 		}
 	}
+}
+
+chrome.runtime.onMessage.addListener(
+	async function(request,sender,sendResponse){
+//		sendResponse("Message sent");
+		console.log("Message recieved: " + request.msg)
+//		console.log(request.data)
+		
+		if (request.msg === "pomodoroAlarmSet"){
+			chrome.alarms.clear("pomodoro/work");
+			chrome.alarms.clear("pomodoro/break");
+			chrome.alarms.create("pomodoro/work",{when: Date.now()+request.data.workTimer,periodInMinutes:30})
+			chrome.alarms.create("pomodoro/break",{when:Date.now()+request.data.breakTimer,periodInMinutes:30})
+
+			sendResponse("Pomodoro Alarms set, first alarm at: " + new Date(Date.now()+request.data.workTimer).toString());
+		}
+		if (request.msg === "pomodoroAlarmClear"){
+			chrome.alarms.clear("pomodoro/work");
+			chrome.alarms.clear("pomodoro/break");
+			sendResponse("Pomodoro Alarms cleared")
+		}
+		if (request.msg === "pomodoroAlarmGet"){
+			sendTimers()
+		}
+	})
+
+function sendPomodoroMessage(breakPeriodCheck){
+	chrome.runtime.sendMessage({
+		msg: "pomodoroCleared",
+		data:{
+			breakPeriodCheck: breakPeriodCheck
+			}
+		}, (response) => console.log(response));
+	console.log("clear")
+	console.log(breakPeriodCheck)
+}
+
+function sendTimers(){
+	chrome.alarms.getAll(alarmList => {
+		let workTime = undefined;
+		let breakTime = undefined;
+		for(i = 0; i < alarmList.length; i++){
+			if (alarmList[i].name == "pomodoro/work"){
+				workTime = alarmList[i].scheduledTime;
+			}
+			if (alarmList[i].name == "pomodoro/break"){
+				breakTime = alarmList[i].scheduledTime;
+			}
+		}
+		
+		chrome.runtime.sendMessage({
+			msg: "timerUpdate",
+			data:{
+				workTimer: workTime,
+				breakTimer: breakTime
+				}
+			}, (response) => console.log(response));
+		console.log("clear")
+	});
+
 }
