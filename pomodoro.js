@@ -124,7 +124,7 @@ function pomodoroModeSet(level){
 
 chrome.runtime.onMessage.addListener(
 	function(request,sender,sendResponse){
-		sendResponse("Message sent");
+		sendResponse("Message sent to pomodoroJS");
 		console.log("Message recieved")
 		if (request.msg === "timerUpdate"){
 

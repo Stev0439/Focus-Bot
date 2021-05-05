@@ -83,6 +83,7 @@ console.log("Alarm fired: " + alarm.name);
 		else{
 			setTimeout(sendPomodoroMessage.bind(null,true),300)
 		}
+		sendTimers()
 	}
 }
 

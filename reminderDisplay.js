@@ -4,7 +4,7 @@ let reminderDescription = "";
 chrome.runtime.onMessage.addListener(
 	function(request,sender,sendResponse){
 		sendResponse("Message sent");
-//		console.log("Message recieved")
+		console.log("Message recieved")
 		if (request.msg === "newActiveReminder" && !this.recievedResponse){
 			this.recievedResponse = true;
 //			console.log(request.data)
