@@ -144,10 +144,11 @@ chrome.runtime.onMessage.addListener(
 				pomodoroModeSet(-1)
 			}
 
+			console.log(currTime)
 			currTimeSeconds = Math.round(currTime / 1000)
-			currTimeMinutes = Math.floor(currTimeSeconds / 60)
-			currTimeSeconds = currTime % 60;
-
+			console.log(currTimeSeconds)
+			currTimeMinutes = Math.floor(currTime / 60 / 1000)
+			currTimeSeconds = currTimeSeconds % 60;
 
 			display = [currTimeMinutes,currTimeSeconds]
 			console.log(display)
