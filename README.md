@@ -21,3 +21,5 @@ The focus bot has conversations with the users as well as responds to events. Th
 5. Selected bot folder ("Focus-Bot")
 
 The bot is now loaded and available to use! You can access the menu via the Google icon in the extensions menu.
+
+[DEPLOY.md](DEPLOY.md)
