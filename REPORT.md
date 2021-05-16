@@ -6,6 +6,10 @@ Our focus bot would be used to increase team member productivity by solving the 
 
 <ins>Primary Features<ins>
 
+All features can be accessed from the extension's popup menu by clicking it's appropriate button.
+
+![Focus Bot](images/Report%20Images/Focus%20Bot.png)
+
 Pomodoro:
 
 Clicking 'Start Timer' to start a cycle of 15 minute timers that allow you to alternate between work and break to help you focus.
@@ -47,3 +51,13 @@ Music:
 Clicking on any of the 4 types of music ("Classical Instrumental", "Lofi Hip Hop", "Anime Openings", "Epic Videogame") will open a Youtube link to play the music in the background.
 
 ![Music](images/Report%20Images/Music.png)
+
+<ins>Reflection<ins>
+
+## what is reflection i don't think
+
+<ins>Limitations & Future<ins>
+
+One of our biggest limitations was attempting to integrate a background script that would be active without the main extension window open. This was a problem as the use of background.js as a 'service worker' that was completely separated from the main windows and their functionalities (and contents, in the case of displays) We had to essentially treat what should've been a locally accessible API and functionality as an outside system that we were sending messages to and from using Chrome's messenger API.
+
+## please add here someone no personal plans for future
